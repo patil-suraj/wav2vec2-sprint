@@ -26,4 +26,3 @@ RUN chown -R 42420:42420 /workspace
 
 ENTRYPOINT []
 CMD ["supervisord", "-n", "-u", "42420", "-c", "/etc/supervisor/supervisor.conf"]
-~
