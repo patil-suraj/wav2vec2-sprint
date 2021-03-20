@@ -16,4 +16,14 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
 
 RUN pip install git+https://github.com/huggingface/transformers.git
 
-COPY . /src
+RUN mkdir -p /workspace/wav2vec/
+
+COPY finetune.sh /workspace/wav2vec/
+COPY run_common_voice.py /workspace/wav2vec/
+COPY home-server.html /usr/bin/home-server.html
+
+RUN chown -R 42420:42420 /workspace
+
+ENTRYPOINT []
+CMD ["supervisord", "-n", "-u", "42420", "-c", "/etc/supervisor/supervisor.conf"]
+~
