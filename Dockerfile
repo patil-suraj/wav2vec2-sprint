@@ -3,7 +3,8 @@ FROM ovhcom/ai-training-pytorch
 RUN apt-get update && \
     apt install -y bash \
         build-essential \
-        libsndfile1-dev
+        libsndfile1-dev \
+        git-lfs
 
 RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     python3 -m pip install --no-cache-dir \
@@ -20,9 +21,11 @@ RUN mkdir -p /workspace/wav2vec/
 
 COPY finetune.sh run_common_voice.py  finetune_with_params.sh /workspace/wav2vec/
 
-COPY home-server.html /usr/bin/home-server.html
+COPY home-server.html run_all.sh /usr/bin/
 
 RUN chown -R 42420:42420 /workspace
+
+RUN chown -R 42420:42420 /usr/bin/run_all.sh
 
 #Default training env variables
 ENV model_name_or_path="facebook/wav2vec2-large-xlsr-53" \
@@ -45,4 +48,5 @@ ENV model_name_or_path="facebook/wav2vec2-large-xlsr-53" \
 
 WORKDIR /workspace
 ENTRYPOINT []
+#CMD ["sh", "/usr/bin/run_all.sh"]
 CMD ["supervisord", "-n", "-u", "42420", "-c", "/etc/supervisor/supervisor.conf"]
