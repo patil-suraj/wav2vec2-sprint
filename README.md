@@ -1,4 +1,4 @@
-Dockerhub available at: ?
+Dockerhub available at https://hub.docker.com/r/patilsuraj/hf-wav2vec-sprint
 
 to build the docker :
 
@@ -17,4 +17,3 @@ to push it to dockerhub
 ```
 $ docker push your-dockerhub-user/hf-wav2vec-sprint
 ```
-
