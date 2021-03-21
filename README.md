@@ -1,4 +1,4 @@
-Dockerhub available at https://hub.docker.com/r/patilsuraj/hf-wav2vec-sprint
+Dockerhub available at https://hub.docker.com/r/patilsuraj/hf-wav2vec
 
 to build the docker :
 
