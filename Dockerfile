@@ -43,6 +43,6 @@ ENV model_name_or_path="facebook/wav2vec2-large-xlsr-53" \
     max_train_samples=100 \
     max_val_samples=100
 
-WORKDIR /workspace/wav2vec
+WORKDIR /workspace
 ENTRYPOINT []
 CMD ["supervisord", "-n", "-u", "42420", "-c", "/etc/supervisor/supervisor.conf"]
