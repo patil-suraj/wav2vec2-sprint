@@ -1,10 +1,11 @@
-FROM ovhcom/ai-training-pytorch
+FROM ovhcom/ai-training-one-for-all
 
 RUN apt-get update && \
     apt install -y bash \
-        build-essential \
-        libsndfile1-dev \
-        git-lfs
+    build-essential \
+    libsndfile1-dev \
+    git-lfs \
+    sox
 
 RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     python3 -m pip install --no-cache-dir \
@@ -15,7 +16,9 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     lang-trans==0.6.0 \
     librosa==0.8.0
 
-RUN pip install git+https://github.com/huggingface/transformers.git
+RUN pip3 uninstall -y typing allennlp
+
+RUN pip3 install git+https://github.com/huggingface/transformers.git
 
 RUN mkdir -p /workspace/wav2vec/
 
