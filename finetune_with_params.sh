@@ -9,6 +9,7 @@ python /workspace/wav2vec/run_common_voice.py \
     --overwrite_output_dir \
     --num_train_epochs=$num_train_epochs \
     --per_device_train_batch_size=$per_device_train_batch_size \
+    --per_device_eval_batch_size=$per_device_eval_batch_size \
     --evaluation_strategy=$evaluation_strategy \
     --learning_rate=$learning_rate \
     --warmup_steps=$warmup_steps \

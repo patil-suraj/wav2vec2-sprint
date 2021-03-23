@@ -2,12 +2,12 @@
 python run_common_voice.py \
     --model_name_or_path="facebook/wav2vec2-large-xlsr-53" \
     --dataset_config_name="tr" \
-    --output_dir=/workspace/container_0/wav2vec2-large-xlsr-turkish-demo \
-    --cache_dir=/workspace/container_0 \
+    --output_dir=/workspace/output_models/tr/wav2vec2-large-xlsr-turkish-demo \
+    --cache_dir=/workspace/data/tr \
     --overwrite_output_dir \
     --num_train_epochs="1" \
     --per_device_train_batch_size="32" \
-    --per_device_train_batch_size="32" \
+    --per_device_eval_batch_size="32" \
     --evaluation_strategy="steps" \
     --learning_rate="3e-4" \
     --warmup_steps="500" \
