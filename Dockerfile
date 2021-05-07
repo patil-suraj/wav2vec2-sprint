@@ -26,7 +26,7 @@ RUN pip3 install git+https://github.com/huggingface/transformers.git
 
 RUN mkdir -p /workspace/wav2vec/
 
-COPY finetune.sh run_common_voice.py  finetune_with_params.sh /workspace/wav2vec/
+COPY fine-tune-xlsr-wav2vec2-on-turkish-asr-with-transformers.ipynb finetune.sh run_common_voice.py  finetune_with_params.sh /workspace/wav2vec/
 
 COPY home-server.html run_all.sh /usr/bin/
 
@@ -41,6 +41,7 @@ ENV model_name_or_path="facebook/wav2vec2-large-xlsr-53" \
     cache_dir="/workspace/data" \
     num_train_epochs="1" \
     per_device_train_batch_size="32" \
+    per_device_eval_batch_size="32" \
     evaluation_strategy="steps" \
     learning_rate="3e-4" \
     warmup_steps="500" \
